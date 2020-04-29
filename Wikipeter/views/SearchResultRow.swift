@@ -9,20 +9,19 @@
 import SwiftUI
 
 struct SearchResultRow: View {
-    let result: Result;
-    @State var isOpen = false;
+    @State var result: Result?
+    typealias MethodAlias = (_ articleResult: Result) -> Void
+    var loadArticle: MethodAlias
     
     var body: some View {
-        Button(action: {self.isOpen = true}) {
+        Button(action: {self.loadArticle(self.result!)}) {
             HStack {
-            Text(result.title)
-                .fontWeight(.bold)
-                .font(.system(.body, design: .rounded))
-            Spacer()
-            Text("\(Double(result.dist).removeZerosFromEnd())m")
+                Text(result!.title)
+                    .fontWeight(.bold)
+                    .font(.system(.body, design: .rounded))
+                Spacer()
+                Text("\(Double(result!.dist).removeZerosFromEnd())m")
             }
-        }.padding(12).sheet(isPresented: $isOpen, content: {
-            Text("test")
-        })
+        }
     }
 }
