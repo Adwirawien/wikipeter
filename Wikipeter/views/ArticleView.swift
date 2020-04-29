@@ -18,7 +18,7 @@ struct ArticleView: View {
         ScrollView {
             VStack {
                 if (articleResult != nil) {
-                    MapView(results: $articleResults, latitude: articleResult!.lat ?? 0, longitude: articleResult!.lon ?? 0)
+                    MapView(results: $articleResults, latitude: articleResult!.lat, longitude: articleResult!.lon)
                     .cornerRadius(10)
                     .frame(width: nil, height: 300, alignment: .top)
                     .padding(.horizontal)
