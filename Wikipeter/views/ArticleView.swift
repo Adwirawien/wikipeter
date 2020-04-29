@@ -23,7 +23,7 @@ struct ArticleView: View {
                     .frame(width: nil, height: 300, alignment: .top)
                     .padding(.horizontal)
 
-                WebView(request: URLRequest(url: URL(string: String("https://de.wikipedia.org/w/index.php?title=\(articleResult!.title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)"))!))
+                WebView(request: URLRequest(url: URL(string: String("https://de.wikipedia.org/w/index.php?title=\(articleResult!.title.addingPercentEncoding(withAllowedCharacters: .letters)!)"))!))
                     .frame(width: nil, height: 10000, alignment: .top)
                 } else {
                     Text("An error occured.")
