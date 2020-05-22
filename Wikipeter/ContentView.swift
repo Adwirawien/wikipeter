@@ -19,7 +19,7 @@ struct ContentView: View {
 
     // map stuff
     @State var actionState: Int? = 0
-    @State var articleResult:  Result?
+    @State var articleResult: Result?
 
     init() {
         UITableView.appearance().tableFooterView = UIView()
@@ -34,7 +34,7 @@ struct ContentView: View {
 
     func loadSurroundingArticles() {
         DispatchQueue.main.async {
-            let nearby = WikipediaFetcher().getArticlesNearby(latitude: self.lm.location?.latitude ?? 0, longitude: self.lm.location?.longitude ?? 0) { results, error in
+            _ = WikipediaFetcher().getArticlesNearby(latitude: self.lm.location?.latitude ?? 0, longitude: self.lm.location?.longitude ?? 0) { results, error in
                 if (error != nil) {
                     self.errorMessage = error!;
                     self.showingAlert = true;
